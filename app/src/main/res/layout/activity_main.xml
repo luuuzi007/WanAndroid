@@ -1,18 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+    <FrameLayout
+        android:id="@+id/frl_main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/refresh"/>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/home"
+            android:textColor="@color/main_buttom_tv"
+            android:textSize="@dimen/sp_16"
+            android:gravity="center_horizontal"
+            app:drawableTopCompat="@drawable/selector_main_home"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_project"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/project"
+            android:textColor="@color/main_buttom_tv"
+            android:textSize="@dimen/sp_16"
+            android:gravity="center_horizontal"
+            app:drawableTopCompat="@drawable/selector_main_project"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_the_public"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/the_public"
+            android:textColor="@color/main_buttom_tv"
+            android:textSize="@dimen/sp_16"
+            android:gravity="center_horizontal"
+            app:drawableTopCompat="@drawable/selector_main_project"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_my"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/my"
+            android:textColor="@color/main_buttom_tv"
+            android:textSize="@dimen/sp_16"
+            android:gravity="center_horizontal"
+            app:drawableTopCompat="@drawable/selector_main_my"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

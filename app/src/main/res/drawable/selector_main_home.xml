@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--    被选中-->
+    <item android:drawable="@drawable/ic_nav_news_actived" android:state_selected="true" />
+    <!--    被激活-->
+    <item android:drawable="@drawable/ic_nav_news_actived" android:state_activated="true" />
+    <!--    默认-->
+    <item android:drawable="@drawable/ic_nav_news_normal" />
+
+
+</selector>
