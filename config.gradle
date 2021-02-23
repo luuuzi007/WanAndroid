@@ -67,7 +67,7 @@ ext {
             "tablayout"              : 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar',//导航指示器
             "picture_library"        : 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3',//图片选择与裁剪
             "timber"                 : "com.jakewharton.timber:timber:4.7.1",
-            "base-rvadapter"         : "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34",//RecyclerView适配器
+            "baseRvadapter"         : 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4',//RecyclerView适配器
             "banner"                 : 'com.youth.banner:banner:2.1.0',//广告轮播器
             "autosize"               : "me.jessyan:autosize:1.1.2",//今日头条适配
             "pickerView"             : "com.contrarywind:Android-PickerView:4.1.8",//时间、条件选择器

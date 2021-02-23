@@ -12,5 +12,17 @@
 <!--    主题色-->
     <color name="theme">#FF8C00</color>
     <color name="c1">#1C1C1C</color>
+    <!-- 灰白 -->
+    <color name="grayWhites">#F8F8F8</color>
+    <color name="article_pressed">#e9e5e5</color>
+    <!--取消按钮-->
+    <color name="red_btn_bg_color">#DD6B55</color>
+
+    <!-- 字体颜色 -->
+    <color name="text_color_dark">#464646</color>
+    <color name="text_color">#5A5A5A</color>
+    <color name="text_green_dark">#FF006E73</color>
+    <color name="text_green">#25C84C</color>
+    <color name="text_color_black">#202020</color>
 
 </resources>

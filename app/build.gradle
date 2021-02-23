@@ -47,6 +47,11 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies["glide-compiler"]
 
     implementation rootProject.ext.dependencies["constraintlayout"]
+    //刷新框架
+    implementation rootProject.ext.dependencies["smartRefreshLayout"]
+    implementation rootProject.ext.dependencies["smartRefreshHeader"]
+    //RecyclerView适配器
+    implementation rootProject.ext.dependencies["baseRvadapter"]
 
     testImplementation rootProject.ext.dependencies["junit"]
     androidTestImplementation rootProject.ext.dependencies["ext-junit"]
