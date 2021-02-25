@@ -1,17 +1,15 @@
 package com.luuuzi.wanandroid.home
 
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.chad.library.adapter.base.BaseQuickAdapter
+import com.chad.library.adapter.base.listener.OnItemClickListener
 import com.luuuzi.common.view.BaseFragment
 import com.luuuzi.wanandroid.R
 import com.luuuzi.wanandroid.bean.AriticleData
 import com.luuuzi.wanandroid.bean.Data
-import com.scwang.smartrefresh.layout.api.RefreshLayout
-import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener
-import com.scwang.smartrefresh.layout.listener.OnRefreshListener
 import com.youth.banner.indicator.CircleIndicator
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -79,23 +77,24 @@ class HomeFragment : BaseFragment() {
         rlv_home.layoutManager = LinearLayoutManager(activity)
         ariticleAdapter = AriticleAdapter(R.layout.item_article, articleList.toMutableList())
 
+        ariticleAdapter.setOnItemClickListener(object : OnItemClickListener {
+            override fun onItemClick(adapter: BaseQuickAdapter<*, *>, view: View, position: Int) {
+
+            }
+        })
         rlv_home.adapter = ariticleAdapter
 
-        refresh_layout.setOnRefreshListener(object : OnRefreshListener {
-            override fun onRefresh(refreshLayout: RefreshLayout) {
-                page = 1
-                viewModel.loadAriticle(page)
-            }
-        })
-        refresh_layout.setOnLoadMoreListener(object : OnLoadMoreListener {
-            override fun onLoadMore(refreshLayout: RefreshLayout) {
-                page++
-                viewModel.loadAriticle(page)
-            }
-
-        })
+        refresh_layout.setOnRefreshListener {
+            page = 1
+            viewModel.loadTopArticle()
+        }
+        refresh_layout.setOnLoadMoreListener {
+            page++
+            viewModel.loadAriticle(page)
+        }
         viewModel.mTopAriticles.observe(this,
             Observer<List<AriticleData>> { t ->
+                refresh_layout.finishRefresh()
                 ariticleAdapter.setList(t.toMutableList())
             })
         viewModel.mArticles.observe(this, object : Observer<List<AriticleData>> {
@@ -105,8 +104,7 @@ class HomeFragment : BaseFragment() {
                     ariticleAdapter.setList(t)
                 } else {
                     refresh_layout.finishLoadMore()
-                    articleList.addAll(t!!)
-                    Log.i("aaa","size:${articleList.size}")
+                    ariticleAdapter.addData(t!!)
                     ariticleAdapter.notifyDataSetChanged()
                 }
             }

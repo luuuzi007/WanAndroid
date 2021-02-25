@@ -34,9 +34,10 @@ class HomeViewModel : ViewModel() {
     }
 
     /**
-     * 获取置顶文章列表
+     * 获取置顶文章列表和第一页数据
      */
     fun loadTopArticle() {
+        var datas: ArrayList<AriticleData> = ArrayList()
         MLog.i("获取文章列表")
         SimpleHttp.Builder()
             .url("article/top/json")
@@ -44,7 +45,17 @@ class HomeViewModel : ViewModel() {
             .get()
             .request(TopAriticleBean::class.java, object : ISuccess<TopAriticleBean> {
                 override fun success(t: TopAriticleBean) {
-                    mTopAriticles.value = t.data
+                    datas.addAll(t.data)
+                    SimpleHttp.Builder()
+                        .url("article/list/1/json")
+                        .build()
+                        .get()
+                        .request(ArticleListBean::class.java, object : ISuccess<ArticleListBean> {
+                            override fun success(t: ArticleListBean) {
+                                datas.addAll(t.data.datas)
+                                mTopAriticles.value = datas
+                            }
+                        })
                 }
             })
 
