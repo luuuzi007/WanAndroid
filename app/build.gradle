@@ -52,6 +52,8 @@ dependencies {
     implementation rootProject.ext.dependencies["smartRefreshHeader"]
     //RecyclerView适配器
     implementation rootProject.ext.dependencies["baseRvadapter"]
+    //导航指示器
+    implementation rootProject.ext.dependencies["tablayout"]
 
     testImplementation rootProject.ext.dependencies["junit"]
     androidTestImplementation rootProject.ext.dependencies["ext-junit"]
