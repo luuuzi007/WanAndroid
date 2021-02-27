@@ -24,5 +24,6 @@
     <color name="text_green_dark">#FF006E73</color>
     <color name="text_green">#25C84C</color>
     <color name="text_color_black">#202020</color>
+    <color name="indicator_color">#DC5712</color>
 
 </resources>
