@@ -8,4 +8,5 @@ package com.luuuzi.wanandroid.constant
 object Config {
     const val BASE_URL = "https://www.wanandroid.com/"
     const val PROJECT_CLASSFLY="project/tree/json"
+    const val CHAPTERS_CLASSFLY="wxarticle/chapters/json"
 }

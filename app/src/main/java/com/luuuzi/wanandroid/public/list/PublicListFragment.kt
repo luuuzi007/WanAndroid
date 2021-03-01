@@ -1,4 +1,4 @@
-package com.luuuzi.wanandroid.project.list
+package com.luuuzi.wanandroid.public.list
 
 import android.content.Context
 import android.os.Bundle
@@ -22,58 +22,60 @@ import kotlinx.android.synthetic.main.fragment_project_list.*
 /**
  *@author: Luuuzi
  *@Date: 2021-02-27
- *@description: 项目列表
+ *@description: 公众号列表
  */
 
 const val ID = "id"
 const val TYPE = "type"
 
-class ProjectListFragment : BaseFragment() {
+class PublicListFragment : BaseFragment() {
     private var articleList: MutableList<AriticleData> = ArrayList()
     private var page: Int = 0
     private var cId: Int = 0
 
     companion object {
-        fun newInstance(id: Int): ProjectListFragment {
+        fun newInstance(id: Int): PublicListFragment {
             val args = Bundle()
             args.putInt(ID, id)
-            val fragment = ProjectListFragment()
+            val fragment = PublicListFragment()
             fragment.arguments = args
             return fragment
         }
     }
 
-    val viewModel: ProjectListViewModel by lazy {
+    val viewModel by lazy {
         ViewModelProvider(
             this,
             ViewModelProvider.AndroidViewModelFactory(activity!!.application)
-        ).get(ProjectListViewModel::class.java)
+        ).get(PublicListViewModel::class.java)
     }
 
     override fun getLayoutId() = R.layout.fragment_project_list
     override fun initView(rootView: View) {
-
+        LogUtils.i("公众号initView：$cId")
     }
+
     override fun initData() {
+//        LogUtils.i("公众号")
         cId = arguments!!.getInt(ID)
-//        LogUtils.i("公众号：$cId")
         rlv_project.layoutManager = LinearLayoutManager(activity)
         val ariticleAdapter = AriticleAdapter(R.layout.item_article, articleList)
         ariticleAdapter.setOnItemClickListener(object : OnItemClickListener {
             override fun onItemClick(adapter: BaseQuickAdapter<*, *>, view: View, position: Int) {
                 ArticleActivity.actionStart(activity as Context, ariticleAdapter.data[position])
             }
-
         })
         refresh_layout.setOnRefreshListener(object : OnRefreshListener {
             override fun onRefresh(refreshLayout: RefreshLayout) {
-
+                page = 0
+                viewModel.getProjectList(page, cId)
             }
 
         })
         refresh_layout.setOnLoadMoreListener(object : OnLoadMoreListener {
             override fun onLoadMore(refreshLayout: RefreshLayout) {
-
+                page++
+                viewModel.getProjectList(page, cId)
             }
         })
 
@@ -87,7 +89,6 @@ class ProjectListFragment : BaseFragment() {
                     ariticleAdapter.notifyDataSetChanged()
                 }
             }
-
         })
 //        LogUtils.i("cid:$cId")
         viewModel.getProjectList(page, cId)

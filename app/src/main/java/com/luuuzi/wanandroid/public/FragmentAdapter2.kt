@@ -1,4 +1,4 @@
-package com.luuuzi.wanandroid.project
+package com.luuuzi.wanandroid.public
 
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -8,16 +8,16 @@ import androidx.fragment.app.FragmentPagerAdapter
 /**
  *@author: Luuuzi
  *@Date: 2021-02-27
- *@description:
+ *@description:公众号
  */
-class FragmentAdapter(private val mFragmentManager: FragmentManager?) : FragmentPagerAdapter
+class FragmentAdapter2(private val mFragmentManager: FragmentManager?) : FragmentPagerAdapter
     (mFragmentManager!!, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
     private val mFragment: MutableList<Fragment> = ArrayList()
     private var isUpdateFlag = false
     private var curFragment: Fragment? = null
     private lateinit var mTitles: Array<String>
     override fun getItemPosition(`object`: Any): Int {
-        return FragmentPagerAdapter.POSITION_NONE
+        return POSITION_NONE
     }
 
     override fun instantiateItem(
