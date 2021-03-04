@@ -7,14 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <!-- 下拉刷新颜色 -->
-    <color name="refresh">#F8F8F8</color>
+
 <!--    主题色-->
     <color name="theme">#FF8C00</color>
     <color name="c1">#1C1C1C</color>
     <!-- 灰白 -->
     <color name="grayWhites">#F8F8F8</color>
     <color name="article_pressed">#e9e5e5</color>
+    <color name="color_ccc">#cccccc</color>
     <!--取消按钮-->
     <color name="red_btn_bg_color">#DD6B55</color>
 
