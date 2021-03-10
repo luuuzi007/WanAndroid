@@ -8,7 +8,6 @@ import android.view.View
 import android.view.animation.OvershootInterpolator
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.blankj.utilcode.util.LogUtils
 import com.jeremyliao.liveeventbus.LiveEventBus
 import com.luuuzi.common.view.BaseActivity
 import com.luuuzi.simplehttp.util.sharepreference.VCPreference
@@ -45,8 +44,6 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         btn_login.setOnClickListener(this)
         viewModel.loginResult.observe(this, object : Observer<LoginBean> {
             override fun onChanged(t: LoginBean?) {
-                LogUtils.i("code:${t?.errorCode}")
-                LogUtils.i("code:${t?.errorMsg}")
                 if (t?.errorCode == 0) {//成功
                     if (mIsLogin) {
                         ToastUtil.showMessage("登录成功")
@@ -54,6 +51,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                         LiveEventBus
                             .get(Config.IS_LOGIN)
                             .post(true)
+                        VCPreference.setAppFlag(Config.IS_LOGIN,true)
                         finish()
                     } else {
                         ToastUtil.showMessage("注册成功")
@@ -73,7 +71,6 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun login() {
-        LogUtils.i("login")
         if (checkInfo()) {
             VCyunLoader.showLoading(this)
             if (mIsLogin) {
