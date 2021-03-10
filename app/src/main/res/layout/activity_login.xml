@@ -34,6 +34,7 @@
             android:textSize="@dimen/sp_23" />
 
         <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/tv_account"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="30dp"
@@ -46,6 +47,7 @@
             android:textSize="@dimen/sp_18" />
 
         <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/tv_password"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="30dp"
@@ -56,7 +58,19 @@
             android:paddingStart="5dp"
             android:textColorHint="@color/color_ccc"
             android:textSize="@dimen/sp_18" />
-
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/tv_repassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/shape_login_edittext"
+            android:hint="请再次输入密码"
+            android:paddingStart="5dp"
+            android:textColorHint="@color/color_ccc"
+            android:textSize="@dimen/sp_18"
+            android:visibility="gone"/>
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_register"
             android:layout_width="wrap_content"

@@ -21,7 +21,7 @@ public class VCPreference {
 
     private static final SharedPreferences PREFERENCES =
             PreferenceManager.getDefaultSharedPreferences(App.getApplicationContext());
-    private static final String APP_PREFERENCES_KEY = "PROFILE";
+    private static final String APP_PREFERENCES_KEY = "PROFILE";//配置文件
 
 
     private static SharedPreferences getAppPreference() {

@@ -55,6 +55,7 @@ dependencies {
     //导航指示器
     implementation rootProject.ext.dependencies["tablayout"]
     implementation rootProject.ext.dependencies["qmui"]
+    implementation rootProject.ext.dependencies["livedatabus"]
 
     testImplementation rootProject.ext.dependencies["junit"]
     androidTestImplementation rootProject.ext.dependencies["ext-junit"]

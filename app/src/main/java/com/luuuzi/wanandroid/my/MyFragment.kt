@@ -2,9 +2,14 @@ package com.luuuzi.wanandroid.my
 
 import android.content.Context
 import android.view.View
+import androidx.lifecycle.Observer
+import com.jeremyliao.liveeventbus.LiveEventBus
 import com.luuuzi.common.view.BaseFragment
+import com.luuuzi.simplehttp.util.sharepreference.VCPreference
 import com.luuuzi.wanandroid.R
 import com.luuuzi.wanandroid.article.ArticleActivity
+import com.luuuzi.wanandroid.bean.LoginBean
+import com.luuuzi.wanandroid.constant.Config
 import com.luuuzi.wanandroid.login.LoginActivity
 import kotlinx.android.synthetic.main.fragment_my.*
 
@@ -20,7 +25,7 @@ class MyFragment : BaseFragment(), View.OnClickListener {
     }
 
     override fun getLayoutId() = R.layout.fragment_my
-    override fun initData() {
+    override fun initView(rootView: View) {
         iv_avator.setOnClickListener(this)
         tv_my_points.setOnClickListener(this)
         tv_collection.setOnClickListener(this)
@@ -29,6 +34,10 @@ class MyFragment : BaseFragment(), View.OnClickListener {
         tv_jianshu.setOnClickListener(this)
         tv_github.setOnClickListener(this)
         tv_about_me.setOnClickListener(this)
+    }
+
+    override fun initData() {
+        listLogin()
     }
 
     override fun onClick(v: View?) {
@@ -52,5 +61,16 @@ class MyFragment : BaseFragment(), View.OnClickListener {
                 "https://github.com/luuuzi007"
             )
         }
+    }
+
+    //登录监听
+    private fun listLogin() {
+        LiveEventBus.get(Config.IS_LOGIN, Boolean::class.java)
+            .observe(this, object : Observer<Boolean> {
+                override fun onChanged(t: Boolean?) {
+                    val loginBean = VCPreference.get<LoginBean>(Config.USER_INFO)
+                    tv_name.text = loginBean.data.username
+                }
+            })
     }
 }
