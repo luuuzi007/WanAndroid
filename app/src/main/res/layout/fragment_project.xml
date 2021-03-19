@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <com.flyco.tablayout.SlidingTabLayout
-        android:id="@+id/tablayout"
+        android:id="@+id/tablayout_project"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@color/theme"
@@ -20,7 +20,7 @@
         app:tl_textSelectColor="@color/theme"
         app:tl_indicator_style="BLOCK"/>
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/view_pager"
+        android:id="@+id/vp_project"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>

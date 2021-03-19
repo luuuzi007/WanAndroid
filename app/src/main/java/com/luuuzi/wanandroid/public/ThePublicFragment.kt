@@ -7,6 +7,7 @@ import com.blankj.utilcode.util.LogUtils
 import com.luuuzi.common.view.BaseFragment
 import com.luuuzi.wanandroid.R
 import com.luuuzi.wanandroid.bean.Classify
+import com.luuuzi.wanandroid.project.FragmentAdapter
 import com.luuuzi.wanandroid.public.list.PublicListFragment
 import kotlinx.android.synthetic.main.fragment_the_public.*
 
@@ -42,11 +43,11 @@ class ThePublicFragment : BaseFragment() {
                     titles.add(it.name)
                     fragments.add(PublicListFragment.newInstance(it.id))
                 }
-                val fragmentAdapter = FragmentAdapter2(fragmentManager)
+                val fragmentAdapter = FragmentAdapter(fragmentManager)
                 fragmentAdapter.reset(fragments)
                 fragmentAdapter.reset(titles.toTypedArray())
-                view_pager.adapter = fragmentAdapter
-                tablayout.setViewPager(view_pager)
+                vp_public.adapter = fragmentAdapter
+                tablayout_public.setViewPager(vp_public)
             })
         viewModel.getChapterClassfly()
     }

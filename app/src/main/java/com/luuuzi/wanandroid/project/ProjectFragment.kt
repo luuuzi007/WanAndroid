@@ -47,8 +47,8 @@ class ProjectFragment : BaseFragment() {
                 fragmentAdapter.reset(fragments)
                 fragmentAdapter.reset(titles.toTypedArray())
 
-                view_pager.adapter = fragmentAdapter
-                tablayout.setViewPager(view_pager)
+                vp_project.adapter = fragmentAdapter
+                tablayout_project.setViewPager(vp_project)
             })
         viewModel.getClassfly()
     }
