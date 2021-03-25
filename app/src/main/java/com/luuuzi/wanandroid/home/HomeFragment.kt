@@ -6,9 +6,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.blankj.utilcode.util.LogUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.chad.library.adapter.base.BaseQuickAdapter
+import com.chad.library.adapter.base.listener.OnItemChildClickListener
 import com.chad.library.adapter.base.listener.OnItemClickListener
 import com.luuuzi.common.view.BaseFragment
+import com.luuuzi.simplehttp.util.toast.ToastUtil
 import com.luuuzi.wanandroid.R
 import com.luuuzi.wanandroid.article.ArticleActivity
 import com.luuuzi.wanandroid.bean.AriticleData
@@ -94,6 +97,11 @@ class HomeFragment : BaseFragment() {
                 ArticleActivity.actionStart(activity as Context, ariticleAdapter.data[position])
             }
         })
+        ariticleAdapter.setOnItemChildClickListener { adapter, view, position ->
+            when(view.id){
+                R.id.iv_collect->ToastUtil.showMessage("收藏")
+            }
+        }
         rlv_home.adapter = ariticleAdapter
 
         refresh_layout.setOnRefreshListener {

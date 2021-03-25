@@ -34,12 +34,10 @@ class PublicListFragment : BaseFragment() {
     private var cId: Int = 0
 
     companion object {
-        fun newInstance(id: Int): PublicListFragment {
+        fun newInstance(id: Int)=PublicListFragment().apply {
             val args = Bundle()
             args.putInt(ID, id)
-            val fragment = PublicListFragment()
-            fragment.arguments = args
-            return fragment
+            arguments = args
         }
     }
 

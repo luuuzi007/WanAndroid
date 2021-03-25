@@ -18,7 +18,7 @@ class AriticleAdapter(layoutId: Int, data: MutableList<AriticleData>) :
             .setText(R.id.tv_time, item.niceShareDate)
             .setText(R.id.tv_title, item.title)
             .setText(R.id.tv_chapter_name, item.chapterName)
-
+        addChildClickViewIds(R.id.iv_collect)
         holder.setVisible(R.id.tv_new, item.fresh)
         holder.setVisible(R.id.tv_top, item.type > 0)
 

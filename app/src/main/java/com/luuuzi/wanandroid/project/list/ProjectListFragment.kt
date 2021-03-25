@@ -6,7 +6,6 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.blankj.utilcode.util.LogUtils
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.listener.OnItemClickListener
 import com.luuuzi.common.view.BaseFragment
@@ -34,12 +33,10 @@ class ProjectListFragment : BaseFragment() {
     private var cId: Int = 0
 
     companion object {
-        fun newInstance(id: Int): ProjectListFragment {
+        fun newInstance(id: Int) = ProjectListFragment().apply {
             val args = Bundle()
             args.putInt(ID, id)
-            val fragment = ProjectListFragment()
-            fragment.arguments = args
-            return fragment
+            arguments = args
         }
     }
 
@@ -54,6 +51,7 @@ class ProjectListFragment : BaseFragment() {
     override fun initView(rootView: View) {
 
     }
+
     override fun initData() {
         cId = arguments!!.getInt(ID)
 //        LogUtils.i("公众号：$cId")
